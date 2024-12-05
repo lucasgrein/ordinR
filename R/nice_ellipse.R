@@ -1,3 +1,18 @@
+#' nMDS biplot with centroid ellipses
+#'
+#' This function display the samples in the first 2 axis of nMDS and the centroids of each group
+#'
+#' @param out_perma_nmds a list, the output of perma_nmds
+#' @param mat_ech a data frame or matrix, the matrix specifying the sample groups with modalities in columns and samples in rows.
+#' @param var_test a character, the name of the modality to test.
+#'
+#' @return A ggplot object
+#'
+#' @importFrom vegan ordiellipse
+#' @import ggplot2
+#'
+#' @export
+
 nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
 
   nmds <- out_perma_nmds[[1]]
@@ -6,7 +21,7 @@ nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
   score_nmds <- cbind(score_nmds, mat_ech)
 
   plot.new()
-  ord <- ordiellipse(ord=nmds,groups=score_nmds[, var_test],display="sites",kind="se",conf=0.95,label=TRUE)
+  ord <- vegan::ordiellipse(ord=nmds,groups=score_nmds[, var_test],display="sites",kind="se",conf=0.95,label=TRUE)
 
   df_ell <- data.frame()
   for(g in levels(score_nmds[, var_test])){

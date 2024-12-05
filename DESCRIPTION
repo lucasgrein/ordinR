@@ -1,11 +1,19 @@
 Package: ordinR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Performs PERMANOVA and nMDS. Produces nice plots for inter group differences in community composition.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Chloe Mason & Lucas Greiner
+Maintainer: <lucas.greiner98@gmail.com>
+Description: Performs PERMANOVA and nMDS. Produces nice plots for inter group differences in community composition.
+License: CC0 1.0 Universal
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.3.2
+Imports: 
+    pairwiseAdonis (>= 0.4.1),
+    vegan
+Remotes: 
+    pmartinezarbizu/pairwiseAdonis/pairwiseAdonis
+Depends: 
+    ggplot2,
+    magrittr
