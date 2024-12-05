@@ -1,6 +1,6 @@
 Package: ordinR
 Type: Package
-Title: Performs PERMANOVA and nMDS. Produces nice plots for inter group differences in community composition.
+Title: Nicer ordination plots
 Version: 0.1.0
 Author: Chloe Mason & Lucas Greiner
 Maintainer: <lucas.greiner98@gmail.com>
@@ -16,4 +16,8 @@ Remotes:
     pmartinezarbizu/pairwiseAdonis/pairwiseAdonis
 Depends: 
     ggplot2,
-    magrittr
+    graphics,
+    grDevices,
+    magrittr,
+    rlang,
+    stats

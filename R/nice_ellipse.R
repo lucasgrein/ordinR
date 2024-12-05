@@ -8,9 +8,12 @@
 #'
 #' @return A ggplot object
 #'
-#' @importFrom vegan ordiellipse
+#' @import vegan
 #' @import ggplot2
-#'
+#' @importFrom rlang .data
+#' @importFrom grDevices dev.off
+#' @importFrom graphics plot.new
+#' @importFrom stats as.formula
 #' @export
 
 nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
@@ -31,9 +34,9 @@ nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
     df_ell <- rbind(df_ell, df_inter)
   }
 
-  plot_phyt_site <- ggplot(data=score_nmds, aes(NMDS1, NMDS2)) +
+  plot_phyt_site <- ggplot(data=score_nmds, aes(.data$NMDS1, .data$NMDS2)) +
     geom_point(aes(color=get(var_test)), alpha=0.5) +
-    geom_path(data=df_ell, aes(x=NMDS1, y=NMDS2, colour=get(var_test)), linewidth=1)
+    geom_path(data=df_ell, aes(x=.data$NMDS1, y=.data$NMDS2, colour=get(var_test)), linewidth=1)
 
   dev.off()
 

@@ -11,6 +11,8 @@
 #'
 #' @import ggplot2
 #' @import vegan
+#' @import magrittr
+#' @importFrom stats as.formula
 #' @export
 #'
 
@@ -25,7 +27,7 @@ nice_facet <- function(out_perma_nmds,
   # print(head(cbind(scores_nmds,mat_ech)))
   # print(mat_ech$Year_class)
   plot <- cbind(scores_nmds,mat_ech) %>%
-    ggplot2::ggplot(ggplot2::aes(x=NMDS1,y=NMDS2,color=get(var_col))) +
+    ggplot2::ggplot(ggplot2::aes(x=.data$NMDS1,y=.data$NMDS2,color=get(var_col))) +
     ggplot2::geom_point() +
     ggplot2::facet_grid((form)) +
     ggplot2::labs(color=var_col)

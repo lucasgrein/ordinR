@@ -12,8 +12,12 @@
 #'
 #' @return Return a list containing 2 elements, first an nMDS from the `vegan`
 #' package, second a dataframe r2 and pvalue for each variable tested
+#'
 #' @import vegan
+#' @importFrom stats as.formula
+#'
 #' @export
+#'
 
 perma_nmds <- function(mat_com,
                        mat_ech,
