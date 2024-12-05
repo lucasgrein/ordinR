@@ -1,0 +1,5 @@
+usethis::use_r("perma_nmds")
+usethis::use_r("perma_nmds_ph")
+usethis::use_r("nice_ellipse")
+usethis::use_r("nice_facet")
+usethis::use_r("nice_wrap")
