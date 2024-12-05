@@ -1,13 +1,16 @@
-#' @title Represent PERMANOVA with facets
+#' @title Represent nMDS with facets
 #' @description
-#' This function create a graphical output for a nMDS with a facet
-#' @param out_perma_nmds Community matrix with samples in line
-#' and individuals / species in line
-#' @param mat_ech Matrix with metadata associated with samples
-#' @param var_facet A vector containing 2 variables to make a facet
-#' @param var_col The variable you want to color the samples with
+#' This function create a graphical output for a nMDS with facets
+#' @param out_perma_nmds the output of the `perma_nmds()` function
+#' @param mat_ech a dataframe or matrix, the matrix specifying the samples groups
+#' with modalities in columns and samples in rows
+#' @param var_facet a vector containing 2 variables to make a facet grid
+#' @param var_col a group variable to color nMDS points
 #'
-#' @return Return a nMDS plot
+#' @return Return an nMDS plot from the `ggplot` package
+#'
+#' @import ggplot2
+#' @import vegan
 #' @export
 #'
 

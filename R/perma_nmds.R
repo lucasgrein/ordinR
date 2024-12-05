@@ -2,15 +2,17 @@
 #' @description
 #' This function execute a PERMANOVA test to asses
 #' the significance of the effect of variable on community
-#' structure.
-#' @param mat_com Community matrix with samples in line
-#' and individuals / species in line
-#' @param mat_ech Matrix with metadata associated with samples
-#' @param var_test A vector containing variables to test description
+#' structure. It also performs an nMDS using the Bray-Curtis dissimilarity measure.
+#' @param mat_com a dataframe or matrix, the community matrix with species
+#'  in columns and samples in rows
+#' @param mat_ech a dataframe or matrix, the matrix specifying the samples groups
+#' with modalities in columns and samples in rows
+#' @param var_test a vector containing variables to test
 #' @param hellinger A boolean, if TRUE a Hellinger transformation is applied
 #'
-#' @return Return a list containing 2 elements, first an nMDS second a dataframe
-#' with the PERMANOVA results
+#' @return Return a list containing 2 elements, first an nMDS from the `vegan`
+#' package, second a dataframe r2 and pvalue for each variable tested
+#' @import vegan
 #' @export
 
 perma_nmds <- function(mat_com,
