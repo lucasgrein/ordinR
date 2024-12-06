@@ -11,9 +11,11 @@ usethis::use_package("grDevices", type = "Depends")
 usethis::use_package("graphics", type = "Depends")
 usethis::use_package("stats", type = "Depends")
 usethis::use_package("vegan", type = "Imports")
+usethis::use_package("utils", type = "Imports")
 usethis::use_dev_package("pairwiseAdonis", type = "Imports",
                          remote = "pmartinezarbizu/pairwiseAdonis/pairwiseAdonis")
 
+usethis::use_cc0_license()
 devtools::document()
 
 devtools::check()

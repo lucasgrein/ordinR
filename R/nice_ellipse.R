@@ -14,6 +14,7 @@
 #' @importFrom grDevices dev.off
 #' @importFrom graphics plot.new
 #' @importFrom stats as.formula
+#' @importFrom utils getFromNamespace
 #' @export
 
 nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
@@ -27,9 +28,10 @@ nice_ellipse <- function(out_perma_nmds, mat_ech, var_test){
   ord <- vegan::ordiellipse(ord=nmds,groups=score_nmds[, var_test],display="sites",kind="se",conf=0.95,label=TRUE)
 
   df_ell <- data.frame()
+  fun <- utils::getFromNamespace("veganCovEllipse", "vegan")
   for(g in levels(score_nmds[, var_test])){
     df_inter <- as.data.frame(with(score_nmds[score_nmds[, var_test]==g,],
-                                   vegan:::veganCovEllipse(ord[[g]]$cov,ord[[g]]$center,ord[[g]]$scale)))
+                                   fun(ord[[g]]$cov,ord[[g]]$center,ord[[g]]$scale)))
     df_inter[, var_test] <- g
     df_ell <- rbind(df_ell, df_inter)
   }
