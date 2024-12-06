@@ -17,3 +17,5 @@ usethis::use_dev_package("pairwiseAdonis", type = "Imports",
 devtools::document()
 
 devtools::check()
+
+install_github("lucasgrein/ordinR")
